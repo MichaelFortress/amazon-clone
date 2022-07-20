@@ -1,6 +1,5 @@
 import firebase from "firebase";
-// import { initializeApp } from "firebase/app";
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
  
 
 // Your web app's Firebase configuration
@@ -14,14 +13,6 @@ const firebaseConfig = {
   appId: "1:153209706867:web:092a1ddc388e299a578d06",
   measurementId: "G-KJ5LTQE1NH"
 };
-
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth();
-
-// export function signup(email, password){
-//   return createUserWithEmailAndPassword(auth, email, password);
-// }
 
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);

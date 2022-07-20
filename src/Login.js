@@ -11,7 +11,7 @@ function Login() {
 
  
     const signIn = e => {
-      //  e.preventDefult();
+       e.preventDefault();
 
         auth
             .signInWithEmailAndPassword(email, password)
@@ -23,7 +23,7 @@ function Login() {
     };
 
     const register = e => {
-      // e.preventDefult();
+      e.preventDefault();
  
         auth
             .createUserWithEmailAndPassword(email, password)
