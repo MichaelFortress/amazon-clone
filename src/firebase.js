@@ -1,7 +1,7 @@
-
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
+import firebase from "firebase";
+// import { initializeApp } from "firebase/app";
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+ 
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -16,35 +16,17 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-
-// //import firebase from "./firebase";
-
-// import { initializeApp } from "firebase/app";
-// import { getAuth } from "firebase/auth";
-
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyA9aAcfHD0uUo3Qwav-1fT2filxq1Bayzo",
-//   authDomain: "app-2bfd5.firebaseapp.com",
-//   projectId: "app-2bfd5",
-//   storageBucket: "app-2bfd5.appspot.com",
-//   messagingSenderId: "153209706867",
-//   appId: "1:153209706867:web:2ba7fefb66afd9d0578d06",
-//   measurementId: "G-4V7JP2K543"
-// };
-
-// // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
-// export const auth = getAuth(app)
+// const auth = getAuth();
 
-//const firebaseApp = firebase.initializeApp(firebaseConfig);
+// export function signup(email, password){
+//   return createUserWithEmailAndPassword(auth, email, password);
+// }
 
+// Initialize Firebase
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
 
-//const db = firebaseApp.firestore();
-//const auth = firebase.auth();
-
-//export  { db, auth };
+export {db, auth};

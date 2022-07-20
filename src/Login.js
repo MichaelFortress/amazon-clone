@@ -1,43 +1,40 @@
-import React, { useState} from 'react';
-import {Link} from "react-router-dom";
+import React, { useState } from 'react';
+import {Link, useHistory} from "react-router-dom";
+import { auth } from "./firebase";
 import './Login.css';
 
 function Login() {
     // Longin-functionality
-    // const history = useHistory();
+    const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
  
     const signIn = e => {
-       e.preventDefult();
+      //  e.preventDefult();
 
-        // auth
-        //     .signInUserWithEmailAndPassword(email, password)
-        //     .then(auth => {
-        //          //this successfully create a new user email and password
-        //          if (auth) {
-        //             history.push('/')
-        //         }  
-           
-        //         })         
-        //     .catch(error => alert(error.message))
-    }
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then(auth => {
+                 //this successfully create a new user email and password    
+                  history.push('/Home')         
+                })         
+            .catch(error => alert(error.message))
+    };
 
     const register = e => {
-        
-
-    //     auth
-    //         .createUserWithEmailAndPassword(email, password)
-    //         .then((auth) => {
-    //             // this successfully create a new user email and password
-    //             if (auth) {
-    //                 history.push('/Home')
-    //             }    
-    //         })
-    //         .catch(error => alert(error.message))
-             
-
+      // e.preventDefult();
+ 
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then((auth) => {
+                // this successfully create a new user email and password
+    
+                if (auth) {
+                    history.push('/Home')
+                }    
+            })
+            .catch(error => alert(error.message))
     };
     
   return (
@@ -53,7 +50,7 @@ function Login() {
             <input type='text' value={email} onChange={e => setEmail(e.target.value)}/>
             <h5>Password</h5>
             <input type='password'value={password} onChange={e => setPassword(e.target.value)}/>
-
+          
             <button type='submit'
              onClick={signIn}
              className='login__signInButton'>Sign in</button>
